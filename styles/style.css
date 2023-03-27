@@ -39,8 +39,18 @@ body {
     width: 5rem;
     height: 5rem;
     font-size: 1.6rem;
-    border: 1px solid black;
+    background-color: gray;
     margin: 0 -1px -1px 0; /* separates cell margins so they don't overlap */
+    opacity: 0; /* Transition opacity between square and hovered square
+                   so that I can make a trailing cursor */
+    transition: opacity 2s ease 6s, transform 0.8s ease;
+    transform: scale(1);
+}
+
+.square:hover {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+    transform: scale(1.04);
 }
 
 
