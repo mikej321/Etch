@@ -23,6 +23,10 @@ body {
     justify-content: center;
 }
 
+button {
+    cursor: pointer;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -30,27 +34,127 @@ body {
     justify-content: center;
 }
 
+.color-container {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
 .row {
     display: flex;
 }
-
 
 .square {
     width: 5rem;
     height: 5rem;
     font-size: 1.6rem;
-    background-color: gray;
+    border: 0.2px solid gray;
     margin: 0 -1px -1px 0; /* separates cell margins so they don't overlap */
-    opacity: 0; /* Transition opacity between square and hovered square
-                   so that I can make a trailing cursor */
-    transition: opacity 2s ease 6s, transform 0.8s ease;
-    transform: scale(1);
+    
 }
 
 .square:hover {
     opacity: 1;
-    transition: opacity 0.2s ease;
-    transform: scale(1.04);
+    
 }
 
+/* Separated color id's from color classes, the ID's will be used for
+   the buttons that change the color of the drawing while the classes
+   will be used for the hover class that changes the color */
 
+#red {
+    padding: 1rem 3rem;
+    color: white;
+    border: none;
+    font-size: 1.6rem;
+    background-color: red;
+
+}
+
+.red {
+    background-color: red;
+}
+
+#blue {
+    padding: 1rem 3rem;
+    color: white;
+    border: none;
+    font-size: 1.6rem;
+    background-color: blue;
+}
+
+.blue {
+    background-color: blue;
+}
+
+#orange {
+    padding: 1rem 3rem;
+    color: white;
+    border: none;
+    font-size: 1.6rem;
+    background-color: orange;
+}
+
+.orange {
+    background-color: orange;
+}
+
+#brown {
+    padding: 1rem 3rem;
+    color: white;
+    border: none;
+    font-size: 1.6rem;
+    background-color: brown;
+}
+
+.brown {
+    background-color: brown;
+}
+
+#black {
+    padding: 1rem 3rem;
+    color: white;
+    border: none;
+    font-size: 1.6rem;
+    background-color: black;
+}
+
+.black {
+    background-color: black;
+}
+
+#pink {
+    padding: 1rem 3rem;
+    color: white;
+    border: none;
+    font-size: 1.6rem;
+    background-color: pink;
+}
+
+.pink {
+    background-color: pink;
+}
+
+#purple {
+    padding: 1rem 3rem;
+    color: white;
+    border: none;
+    font-size: 1.6rem;
+    background-color: purple;
+}
+
+.purple {
+    background-color: purple;
+}
+
+#green {
+    padding: 1rem 3rem;
+    color: white;
+    border: none;
+    font-size: 1.6rem;
+    background-color: green;
+}
+
+.green {
+    background-color: green;
+}
