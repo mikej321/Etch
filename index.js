@@ -62,7 +62,7 @@ start.addEventListener('click', createGrid, { once: true });
    instead of toggling it as I don't want any errors to happen. */
 
 
-   let amount = 0;
+   
    
    function retryGrid() {
        const rows = document.querySelectorAll('.row');
@@ -72,7 +72,14 @@ start.addEventListener('click', createGrid, { once: true });
     }
 
     function createNew() {
-        amount = Number(prompt('Please enter an amount for the size of the grid'));
+        let amount;
+
+        do {
+            amount = Number(prompt('Enter a number less than 100', 0));
+        } while (amount >= 100 && amount);
+        
+
+
         for (let i = 0; i < amount; i++) {
             const row = document.createElement('div');
             row.classList.add('row');
