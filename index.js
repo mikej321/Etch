@@ -38,7 +38,7 @@ function createGrid() {
     })
 }
 
-start.addEventListener('click', createGrid);
+start.addEventListener('click', createGrid, { once: true });
 
 // Create 16 square cells for each row, resulting in 16x16 grid
 
@@ -63,21 +63,60 @@ start.addEventListener('click', createGrid);
 
 
    let amount = 0;
-
+   
    function retryGrid() {
-    amount = prompt('Enter an amount for the size of the grid');
-    rows.forEach((row) => row.remove());
-    squares.forEach((square) => square.remove());
-   }
+       const rows = document.querySelectorAll('.row');
+       const squares = document.querySelectorAll('.square');
+       rows.forEach((row) => row.remove());
+       squares.forEach((square) => square.remove());
+    }
+
+    function createNew() {
+        amount = Number(prompt('Please enter an amount for the size of the grid'));
+        for (let i = 0; i < amount; i++) {
+            const row = document.createElement('div');
+            row.classList.add('row');
+            colorContainer.insertAdjacentElement('afterend', row);
+        }
+        
+        const rows = document.querySelectorAll('.row');
+    
+        Array.from(rows).forEach((row) => {
+            for (let i = 0; i < amount; i++) {
+                const square = document.createElement('div');
+                square.classList.add('square');
+                row.appendChild(square);
+            }
+        })
+        const colors = document.querySelectorAll('.color-container > button');
+        let myChoice;
+        
+        Array.from(colors).forEach((color) => {
+             color.addEventListener('click', function() {
+                 myChoice = this.id;
+             })
+        })
+        const squares = document.querySelectorAll('.square');
+        const mySquares = Array.from(squares);
+        mySquares.forEach((square) => {
+         square.addEventListener('mouseover', function() {
+             square.classList.add(`${myChoice}`);
+         })
+        })
+    }
+    
+    
+    retry.addEventListener('click', retryGrid);
+    retry.addEventListener('click', createNew);
+    
+    
    
-   retry.addEventListener('click', retryGrid);
-
-   
-   
-   
-
-   
-
-
-
-
+    
+    
+    
+    
+                                
+                                
+                                
+                                
+                                
